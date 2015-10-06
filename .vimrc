@@ -17,7 +17,7 @@ Plugin 'tpope/vim-fugitive' " the ultimate git helper
 Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
 Plugin 'bling/vim-airline'
 " colorschemes
-Plugin 'chriskempson/base16-vim'
+" Plugin 'chriskempson/base16-vim'
 Plugin 'flazz/vim-colorschemes'
 " JavaScript plugins
 Plugin 'pangloss/vim-javascript'
@@ -43,7 +43,7 @@ set softtabstop=4 " edit as if the tabs are 4 characters wide
 set shiftwidth=4 " number of spaces to use for indent and unindent
 set shiftround " round indent to a multiple of 'shiftwidth'
 
-"set clipboard=unnamed
+set clipboard=unnamed
 
 " faster redrawing
 set ttyfast
@@ -77,12 +77,12 @@ set encoding=utf8
 let base16colorspace=256  " Access colors present in 256 colorspace"
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 set background=dark
-colorscheme Monokai
+colorscheme frood
 
 set number
 
-" set autoindent " automatically set indent of new line
-" set smartindent
+set autoindent " automatically set indent of new line
+set smartindent
 
 set laststatus=2 " show the satus line all the time
 
@@ -97,6 +97,7 @@ map <leader>wc :wincmd q<cr>
 " moving up and down work as you would expect
 nnoremap <silent> j gj
 nnoremap <silent> k gk
+nnoremap <silent> _ :nohl<CR>
 
 " helpers for dealing with other people's code
 nmap \t :set ts=4 sts=4 sw=4 noet<cr>
@@ -112,12 +113,40 @@ map <C-k> :call WinMove('k')<cr>
 map <C-l> :call WinMove('l')<cr>
 
 "Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme="tomorrow"
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
-let g:airline_section_c = '%t'
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+"let g:airline#extensions#branch#empty_message = ''
+let g:airline_theme="kalisi"
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+
+" let g:airline_section_c = '%t'
 let g:airline#extensions#tabline#fnametruncate = 0
