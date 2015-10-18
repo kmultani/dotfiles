@@ -3,7 +3,7 @@
 " load plugins from vundle
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
 " let vundle manage vundle
@@ -16,6 +16,9 @@ Plugin 'benmills/vimux'
 Plugin 'tpope/vim-fugitive' " the ultimate git helper
 Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
 Plugin 'bling/vim-airline'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'cream-showinvisibles'
+
 " colorschemes
 " Plugin 'chriskempson/base16-vim'
 Plugin 'flazz/vim-colorschemes'
@@ -77,7 +80,7 @@ set encoding=utf8
 let base16colorspace=256  " Access colors present in 256 colorspace"
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 set background=dark
-colorscheme frood
+colorscheme Tomorrow-Night
 
 set number
 
@@ -142,7 +145,7 @@ let g:airline_symbols.linenr = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 "let g:airline#extensions#branch#empty_message = ''
-let g:airline_theme="kalisi"
+let g:airline_theme= 'hybridline'
 "let g:airline_left_sep = ''
 "let g:airline_left_alt_sep = ''
 "let g:airline_right_sep = ''
